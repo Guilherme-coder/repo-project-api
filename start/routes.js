@@ -19,3 +19,10 @@ const Route = use('Route')
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
+
+Route.post('/register', 'AuthController/Auth.register')
+Route.post('/login', 'AuthController/Auth.login')
+
+Route.group(() => {
+  Route.get('/load_session', 'AuthController/Auth.loadSession')
+}).middleware('auth')
