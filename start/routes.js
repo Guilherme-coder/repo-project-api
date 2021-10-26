@@ -20,9 +20,9 @@ Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
 
-Route.post('/register', 'AuthController/Auth.register')
-Route.post('/login', 'AuthController/Auth.login')
+Route.post('/register', 'Auth/AuthController.register')
+Route.post('/login', 'Auth/AuthController.login')
 
 Route.group(() => {
-  Route.get('/load_session', 'AuthController/Auth.loadSession')
+  Route.get('/load_session', 'Auth/AuthController.loadSession')
 }).middleware('auth')
