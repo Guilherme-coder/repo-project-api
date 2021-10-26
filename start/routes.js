@@ -1,5 +1,7 @@
 'use strict'
 
+const { route } = require('@adonisjs/framework/src/Route/Manager')
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -26,3 +28,7 @@ Route.post('/login', 'Auth/AuthController.login')
 Route.group(() => {
   Route.get('/load_session', 'Auth/AuthController.loadSession')
 }).middleware('auth')
+
+// Rotas dos Produtos
+
+Route.get('/product_categories', 'ProductCategory/ProductCategoryController.index')
