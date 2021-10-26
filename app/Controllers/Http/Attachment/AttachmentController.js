@@ -4,16 +4,16 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
-const ProductCategory = use('App/Models/ProductCategory')
-const ProductCategoryRepository = use('App/Repository/ProductCategory/ProductCategoryRepository')
+const Attachment = use('App/Models/Attachment')
+const attachmentRepository = use('App/Repository/Attachment/AttachmentRepository')
 
 /**
- * Resourceful controller for interacting with productcategories
+ * Resourceful controller for interacting with attachments
  */
-class ProductCategoryController {
+class AttachmentController {
   /**
-   * Show a list of all productcategories.
-   * GET productcategories
+   * Show a list of all attachments.
+   * GET attachments
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -21,37 +21,35 @@ class ProductCategoryController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    return await ProductCategoryRepository.index();
   }
 
   /**
-   * Render a form to be used for creating a new productcategory.
-   * GET productcategories/create
+   * Render a form to be used for creating a new attachment.
+   * GET attachments/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-
   async create ({ request, response, view }) {
   }
 
   /**
-   * Create/save a new productcategory.
-   * POST productcategories
+   * Create/save a new attachment.
+   * POST attachments
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response, auth }) {
-    
+  async store ({ request, response }) {
+    return await attachmentRepository.store(request.all())
   }
 
   /**
-   * Display a single productcategory.
-   * GET productcategories/:id
+   * Display a single attachment.
+   * GET attachments/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -59,12 +57,12 @@ class ProductCategoryController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
-    return await ProductCategoryRepository.show(params)
+    return await attachmentRepository.show(params)
   }
 
   /**
-   * Render a form to update an existing productcategory.
-   * GET productcategories/:id/edit
+   * Render a form to update an existing attachment.
+   * GET attachments/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -75,8 +73,8 @@ class ProductCategoryController {
   }
 
   /**
-   * Update productcategory details.
-   * PUT or PATCH productcategories/:id
+   * Update attachment details.
+   * PUT or PATCH attachments/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -86,8 +84,8 @@ class ProductCategoryController {
   }
 
   /**
-   * Delete a productcategory with id.
-   * DELETE productcategories/:id
+   * Delete a attachment with id.
+   * DELETE attachments/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -97,4 +95,4 @@ class ProductCategoryController {
   }
 }
 
-module.exports = ProductCategoryController
+module.exports = AttachmentController

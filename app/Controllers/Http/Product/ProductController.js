@@ -4,6 +4,8 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
+const ProductRepository = use('App/Repository/Product/ProductRepository')
+
 /**
  * Resourceful controller for interacting with products
  */
@@ -18,6 +20,7 @@ class ProductController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
+    return await ProductRepository.index();
   }
 
   /**
@@ -40,7 +43,8 @@ class ProductController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
+  async store ({ request, response, auth }) {
+    return await ProductRepository.store(request.all(), auth)
   }
 
   /**
@@ -75,7 +79,8 @@ class ProductController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update ({ params, request, response }) {
+  async update ({ params, request, response, auth }) {
+    return await ProductRepository.update(params, request.all(), auth)
   }
 
   /**
@@ -87,6 +92,7 @@ class ProductController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+    return await ProductRepository.destroy(params)
   }
 }
 
