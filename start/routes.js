@@ -26,3 +26,5 @@ Route.post('/login', 'Auth/AuthController.login')
 Route.group(() => {
   Route.get('/load_session', 'Auth/AuthController.loadSession')
 }).middleware('auth')
+
+Route.resource('/attachment', 'Attachment/AttachmentController')
