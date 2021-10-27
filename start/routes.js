@@ -29,9 +29,14 @@ Route.post('/login', 'Auth/AuthController.login')
 // Rotas com Autenticação
 Route.group(() => {
   Route.get('/load_session', 'Auth/AuthController.loadSession')
+  // Produtos
   Route.post('/products', 'Product/ProductController.store')
   Route.put('/products/:id', 'Product/ProductController.update')
   Route.delete('/products/:id', 'Product/ProductController.destroy')
+  // Reviews
+  Route.post('/reviews', 'ProductReview/ProductReviewController.store')
+  Route.put('/reviews/:id', 'ProductReview/ProductReviewController.update')
+  Route.delete('/reviews/:id', 'ProductReview/ProductReviewController.destroy')
 }).middleware('auth')
 
 // Rotas dos Anexos
@@ -44,3 +49,7 @@ Route.get('/product_categories/:id', 'ProductCategory/ProductCategoryController.
 // Rotas dos Produtos
 Route.get('/products', 'Product/ProductController.index')
 Route.get('/products/:id', 'Product/ProductController.show')
+
+// Rotas das Reviews
+Route.get('/reviews', 'ProductReview/ProductReviewController.index')
+Route.get('/reviews/:id', 'ProductReview/ProductReviewController.show')
