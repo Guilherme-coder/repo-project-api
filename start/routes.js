@@ -33,6 +33,9 @@ Route.group(() => {
   Route.post('/products', 'Product/ProductController.store')
   Route.put('/products/:id', 'Product/ProductController.update')
   Route.delete('/products/:id', 'Product/ProductController.destroy')
+  // Product Sales
+  Route.get('/productsales', 'ProductSale/ProductSaleController.index')
+  Route.post('/productsales', 'ProductSale/ProductSaleController.store')
   // Reviews
   Route.post('/reviews', 'ProductReview/ProductReviewController.store')
   Route.put('/reviews/:id', 'ProductReview/ProductReviewController.update')
